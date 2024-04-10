@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -67,10 +68,30 @@ public class Login extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent ae){
-        new Login().setVisible(true);
-        this.setVisible(false);
+        if(ae.getSource()==b1){
+            try{
+                conn c1 = new conn();
+                String u = t1.getText();
+                String v = t2.getText();
+
+                String q = "select * from login where username='"+u+"' and password='"+v+"'";
+
+                ResultSet rs = c1.s.executeQuery(q);
+                if(rs.next()){
+                    new Dashboard().setVisible(true);
+                    setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Invalid login");
+                    setVisible(false);
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else if(ae.getSource()==b2){
+            System.exit(0);
+        }
     }
     public static void main(String[] arg){
-        new militarySystem();
+        new Login();
     }
 }
