@@ -1,10 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Dashboard extends JFrame{
+public class Dashboard extends JFrame implements ActionListener {
     JMenuBar mb;
     JMenu m1,m2;
-    JMenuItem i1,i2,i3,i4;
+    JMenuItem i1,i2,i3,i4,i5;
 
     Dashboard(){
         mb = new JMenuBar();
@@ -16,14 +17,21 @@ public class Dashboard extends JFrame{
         m2 = new JMenu("Admin");
         mb.add(m2);
 
-        i1 = new JMenuItem("UNIT");
+        i1 = new JMenuItem("PORTAL");
+        i1.addActionListener(this);
         m1.add(i1);
         i2 = new JMenuItem("ADD SOLDIER");
+        i2.addActionListener(this);
         m2.add(i2);
         i3 = new JMenuItem("ADD WEAPON");
+        i3.addActionListener(this);
         m2.add(i3);
         i4 = new JMenuItem("ADD VEHICLE");
+        i4.addActionListener(this);
         m2.add(i4);
+        i5 = new JMenuItem("ADD UNIT");
+        i5.addActionListener(this);
+        m2.add(i5);
 
         mb.setBounds(0,0,1000,30);
 
@@ -45,6 +53,23 @@ public class Dashboard extends JFrame{
         setVisible(true);
     }
 
+    public void actionPerformed(ActionEvent ae){
+        if (ae.getActionCommand().equals("PORTAL")){
+            new portal().setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("ADD SOLDIER")){
+            new addSoldier().setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("ADD WEAPON")){
+            new addWeapon().setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("ADD VEHICLE")){
+            new addVehicle().setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("ADD UNIT")){
+            new addUnit().setVisible(true);
+        }
+    }
     public static void main(String[] args) {
         new Dashboard().setVisible(true);
     }
