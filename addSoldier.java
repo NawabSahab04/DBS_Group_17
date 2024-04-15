@@ -79,25 +79,27 @@ public class addSoldier extends JFrame implements ActionListener {
         String id = t1.getText();
         String fname = t2.getText();
         String lname = t3.getText();
+        String dob = t5.getText();
         String retired_status = null;
         if (yes.isSelected()){
-            retired_status = "YES";
+            retired_status = "Retired";
         }
-        else retired_status = "NO";
+        else retired_status = "Active";
 
         String rank = (String)c1.getSelectedItem();
 
         conn c = new conn();
-        //String str = "insert into projectigi values(" [Complete this]
+
+        String str = "INSERT INTO soldier values( '"+id+"', '"+rank+"', '"+fname+"','"+lname+"', '"+retired_status+"', '"+dob+"')";
         //changes in mysql command line also have to be made
-        /*try{
+        try{
             c.s.executeUpdate(str);
             JOptionPane.showMessageDialog(null,"New Soldier Added");
             this.setVisible(false);
         }
-        catch(Exception e){
-            System.out.println(e);
-        }*/
+        catch(Exception ex){
+            System.out.println(ex);
+        }
     }
     public static void main(String[] args) {
         new addSoldier().setVisible(true);

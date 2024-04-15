@@ -73,17 +73,18 @@ public class addWeapon extends JFrame implements ActionListener {
 
             String rank = (String)c1.getSelectedItem();
 
-            /*conn c = new conn();
+            conn c = new conn();
             try{
-                String str = "insert into vehicles values('"; //complete
+
+                String str = "INSERT INTO weapon values( '"+weapon_id+"', '"+rank+"', '"+weapon_name+"','"+weapon_price+"')";
                 c.s.executeUpdate(str);
 
-                JOptionPane.showMessageDialog(null,"Vehicle Added");
+                JOptionPane.showMessageDialog(null,"Weapon623 Added");
                 this.setVisible(false);
             }
             catch(Exception ex){
                 System.out.println(ex);
-            }*/
+            }
         }
         else if (e.getSource()==b2){
             new addWeapon().setVisible(true);

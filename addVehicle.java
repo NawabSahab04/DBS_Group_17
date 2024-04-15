@@ -30,10 +30,10 @@ public class addVehicle extends JFrame implements ActionListener {
         t2.setBounds(200,130,150,30);
         add(t2);
 
-        JLabel vehicle_price = new JLabel("VEHICLE PRICE");
-        vehicle_price.setFont(new Font("Serif", Font.PLAIN,16));
-        vehicle_price.setBounds(60,180,120,30);
-        add(vehicle_price);
+        JLabel vehicle_type = new JLabel("VEHICLE TYPE");
+        vehicle_type.setFont(new Font("Serif", Font.PLAIN,16));
+        vehicle_type.setBounds(60,180,120,30);
+        add(vehicle_type);
 
         t3 = new JTextField();
         t3.setBounds(200,180,150,30);
@@ -58,11 +58,11 @@ public class addVehicle extends JFrame implements ActionListener {
         if (e.getSource()==b1){
             String vehicle_id = t1.getText();
             String vehicle_name = t2.getText();
-            String vehicle_price = t3.getText();
+            String vehicle_type = t3.getText();
 
-            /*conn c = new conn();
+            conn c = new conn();
             try{
-                String str = "insert into vehicles values('"; //complete
+                String str = "INSERT INTO vehicle values( '"+vehicle_id+"', '"+vehicle_name+"', '"+vehicle_type+"')"; //limited values for VTYPE
                 c.s.executeUpdate(str);
 
                 JOptionPane.showMessageDialog(null,"Vehicle Added");
@@ -70,7 +70,7 @@ public class addVehicle extends JFrame implements ActionListener {
             }
             catch(Exception ex){
                 System.out.println(ex);
-            }*/
+            }
         }
         else if (e.getSource()==b2){
             new addVehicle().setVisible(true);

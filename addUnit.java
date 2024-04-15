@@ -57,16 +57,7 @@ public class addUnit extends JFrame implements ActionListener {
         t5.setBounds(200,280,150,30);
         add(t5);
 
-        JLabel ration_id = new JLabel("RATION ID");
-        ration_id.setFont(new Font("Serif", Font.PLAIN,16));
-        ration_id.setBounds(60,330,120,30);
-        add(ration_id);
-
-        t6 = new JTextField();
-        t6.setBounds(200,330,150,30);
-        add(t6);
-
-        b1 = new JButton("Add Vehicle");
+        b1 = new JButton("Add Unit");
         b1.setBounds(60,380,130,30);
         b1.addActionListener(this);
         add(b1);
@@ -88,11 +79,10 @@ public class addUnit extends JFrame implements ActionListener {
             String unit_size = t3.getText();
             String commander_id = t4.getText();
             String unit_name = t5.getText();
-            String ration_id = t6.getText();
 
-            /*conn c = new conn();
+            conn c = new conn();
             try{
-                String str = "insert into units values('"; //complete
+                String str = "INSERT INTO unit values( '"+unit_id+"', '"+unit_location+"', '"+unit_size+"','"+commander_id+"', '"+unit_name+"')";
                 c.s.executeUpdate(str);
 
                 JOptionPane.showMessageDialog(null,"Unit Added");
@@ -100,7 +90,7 @@ public class addUnit extends JFrame implements ActionListener {
             }
             catch(Exception ex){
                 System.out.println(ex);
-            }*/
+            }
         }
         else if (e.getSource()==b2){
             new addUnit().setVisible(true);
