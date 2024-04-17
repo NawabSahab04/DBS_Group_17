@@ -22,6 +22,7 @@ MySQL Database Server
 NetBeans IDE (or similar)
 Setup
 Database Configuration
+rs2xml to view tables
 
 Ensure MySQL server is running.
 Update database connection details in conn.java for proper database connectivity.
