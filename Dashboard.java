@@ -26,6 +26,9 @@ public class Dashboard extends JFrame implements ActionListener {
         i6 = new JMenuItem("COURT MARTIAL");
         i6.addActionListener(this);
         m2.add(i6);
+        i7 = new JMenuItem("UNIT BUDGET");
+        i7.addActionListener(this);
+        m2.add(i7);
 
         mb.setBounds(0,0,1000,30);
 
@@ -59,6 +62,9 @@ public class Dashboard extends JFrame implements ActionListener {
         }
         else if (ae.getActionCommand().equals("UPDATE")){
             new addUnit().setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("UNIT BUDGET")){
+            new UnitBudget().setVisible(true);
         }
     }
     public static void main(String[] args) {

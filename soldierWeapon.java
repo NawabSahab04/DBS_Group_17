@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+
 import net.proteanit.sql.*;
+
 public class soldierWeapon extends JFrame implements ActionListener {
 
     JTable t1;

@@ -1,13 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class addSoldier extends JFrame implements ActionListener {
     JTextField t1,t2,t3,t4,t5;
     JComboBox c1;
     JButton b1;
     JRadioButton yes;
+    conn c;
     addSoldier(){
+        c = new conn();
         JLabel id = new JLabel("Soldier ID");
         id.setFont(new Font("Serif", Font.BOLD, 10));
         id.setBounds(60,30,120,30);
@@ -75,32 +79,40 @@ public class addSoldier extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         String id = t1.getText();
         String fname = t2.getText();
         String lname = t3.getText();
         String dob = t5.getText();
-        String retired_status = null;
-        if (yes.isSelected()){
-            retired_status = "Retired";
-        }
-        else retired_status = "Active";
+        String retired_status = yes.isSelected() ? "Retired" : "Active";
+        String rank = (String) c1.getSelectedItem();
 
-        String rank = (String)c1.getSelectedItem();
+        String str = "INSERT INTO soldier VALUES(?,?,?,?,?,?)";
 
-        conn c = new conn();
-
-        String str = "INSERT INTO soldier values( '"+id+"', '"+rank+"', '"+fname+"','"+lname+"', '"+retired_status+"', '"+dob+"')";
-        //changes in mysql command line also have to be made
-        try{
-            c.s.executeUpdate(str);
-            JOptionPane.showMessageDialog(null,"New Soldier Added");
+        try {
+            PreparedStatement pstmt = c.c.prepareStatement(str);
+            pstmt.setString(1, id);
+            pstmt.setString(2, rank);
+            pstmt.setString(3, fname);
+            pstmt.setString(4, lname);
+            pstmt.setString(5, retired_status);
+            pstmt.setString(6, dob);
+            pstmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "New Soldier Added");
             this.setVisible(false);
-        }
-        catch(Exception ex){
-            System.out.println(ex);
+        } catch (SQLException ex) {
+            String errorMessage;
+            if (ex.getMessage().toLowerCase().contains("date format")) {
+                errorMessage = "Please enter the date in yyyy-MM-dd format.";
+            } else {
+                errorMessage = "An error occurred while adding the soldier to the database.";
+            }
+            JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+
+
     public static void main(String[] args) {
         new addSoldier().setVisible(true);
     }
