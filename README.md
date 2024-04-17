@@ -47,10 +47,10 @@ Protean (net.proteanit.sql)
 
 Enables easy population of JTable with ResultSet data (DbUtils.resultSetToTableModel(rs)).
 Troubleshooting
-Ensure proper database connectivity.\n
+Ensure proper database connectivity.
 Verify required libraries are included in the project build path.
 Contributors
-Developed by:\n
+Developed by:
 Vishnu Chebolu- 2022A7PS0124P
 Virendrasinh mane-2022A7PS1175P
 Samrath Singh Khanuja- 2022A7PS1171P
