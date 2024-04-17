@@ -79,7 +79,7 @@ public class addWeapon extends JFrame implements ActionListener {
                 String str = "INSERT INTO weapon values( '"+weapon_id+"', '"+rank+"', '"+weapon_name+"','"+weapon_price+"')";
                 c.s.executeUpdate(str);
 
-                JOptionPane.showMessageDialog(null,"Weapon623 Added");
+                JOptionPane.showMessageDialog(null,"Weapon Added");
                 this.setVisible(false);
             }
             catch(Exception ex){
