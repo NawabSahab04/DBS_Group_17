@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.util.Base64;
 
 public class portal extends JFrame implements ActionListener {
-    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12;
+    JButton b1,b2,b3,b4,b5,b12;
 
     public portal(){
         b1 = new JButton("New Soldier");
@@ -31,80 +31,32 @@ public class portal extends JFrame implements ActionListener {
         b5.addActionListener(this);
         add(b5);
 
-        b6 = new JButton("Remove Weapon");
-        b6.setBounds(10,230,150,30);
-        b6.addActionListener(this);
-        add(b6);
-
-        b7 = new JButton("Remove Vehicle");
-        b7.setBounds(10,270,150,30);
-        b7.addActionListener(this);
-        add(b7);
-
-        b8 = new JButton("Remove Unit");
-        b8.setBounds(10,310,150,30);
-        b8.addActionListener(this);
-        add(b8);
-
-        b9 = new JButton("Soldier Info");
-        b9.setBounds(10,350,150,30);
-        b9.addActionListener(this);
-        add(b9);
-
-        b10 = new JButton("Weapon Info");
-        b10.setBounds(10,390,150,30);
-        b10.addActionListener(this);
-        add(b10);
-
-        b11 = new JButton("Vehicle Info");
-        b11.setBounds(10,430,150,30);
-        b11.addActionListener(this);
-        add(b11);
-
-        b12 = new JButton("Logout");
-        b12.setBounds(10,470,150,30);
+        b12 = new JButton("Back");
+        b12.setBounds(10,300,150,30);
         b12.addActionListener(this);
         add(b12);
 
 
         setLayout(null);
-        setBounds(500,200,600,550);
+        setBounds(500,200,300,400);
         setVisible(true);
 
     }
     public void actionPerformed(ActionEvent ae){
         if (ae.getSource() == b1){
-
+            new addSoldier().setVisible(true);
         }
         else if (ae.getSource() == b2){
-
+            new addWeapon().setVisible(true);
         }
         else if (ae.getSource() == b3){
-
+            new addVehicle().setVisible(true);
         }
         else if (ae.getSource() == b4){
-
+            new addUnit().setVisible(true);
         }
         else if (ae.getSource() == b5){
-
-        }
-        else if (ae.getSource() == b6){
-
-        }
-        else if (ae.getSource() == b7){
-
-        }
-        else if (ae.getSource() == b8){
-
-        }
-        else if (ae.getSource() == b9){
-
-        }
-        else if (ae.getSource() == b10){
-
-        }
-        else if (ae.getSource() == b11){
-
+            new deleteSoldier().setVisible(true);
         }
         else if (ae.getSource() == b12){
             setVisible(false);

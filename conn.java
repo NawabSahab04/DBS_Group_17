@@ -9,7 +9,7 @@ public class conn {
             // Load the MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Establish connection to your MySQL database
-            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/PROJECTIGIFinal","root","root");
+            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectigi","root","root");
             // Create a statement object
             s = c.createStatement();
         }
