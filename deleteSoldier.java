@@ -29,11 +29,11 @@ public class deleteSoldier extends JFrame implements ActionListener {
         String id = t1.getText();
         conn c = new conn();
 
-        String str = "delete from soldier where soldier_id = '"+id+"'";
+        String procedureCall = "CALL RemoveSoldierF('" + id + "')";
         //changes in mysql command line also have to be made
         try{
-            c.s.executeUpdate(str);
-            JOptionPane.showMessageDialog(null,"SOLDIER REMOVED");
+            c.s.executeUpdate(procedureCall);
+            JOptionPane.showMessageDialog(null,"SOLDIER REMOVED FROM SERVICE");
             this.setVisible(false);
         }
         catch(Exception ex){

@@ -58,7 +58,7 @@ public class Dashboard extends JFrame implements ActionListener {
             new soldierWeapon().setVisible(true);
         }
         else if (ae.getActionCommand().equals("COURT MARTIAL")){
-            new deleteSoldier().setVisible(true);
+            new CourtMartial().setVisible(true);
         }
         else if (ae.getActionCommand().equals("UPDATE")){
             new addUnit().setVisible(true);

@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.util.Base64;
 
 public class portal extends JFrame implements ActionListener {
-    JButton b1,b2,b3,b4,b5,b12;
+    JButton b1,b2,b3,b4,b5,b6,b12;
 
     public portal(){
         b1 = new JButton("New Soldier");
@@ -31,10 +31,17 @@ public class portal extends JFrame implements ActionListener {
         b5.addActionListener(this);
         add(b5);
 
+
+        b6 = new JButton("Show Soldier Information");
+        b6.setBounds(10,230,150,30);
+        b6.addActionListener(this);
+        add(b6);
+
         b12 = new JButton("Back");
         b12.setBounds(10,300,150,30);
         b12.addActionListener(this);
         add(b12);
+
 
 
         setLayout(null);
@@ -60,6 +67,9 @@ public class portal extends JFrame implements ActionListener {
         }
         else if (ae.getSource() == b12){
             setVisible(false);
+        }
+        else if (ae.getSource() == b6){
+            new ShowInfo().setVisible(true);
         }
     }
     public static void main(String[] args){
