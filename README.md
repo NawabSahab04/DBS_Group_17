@@ -1,4 +1,4 @@
-#Military System Application
+# Military System Application
 This Java application demonstrates a user interface to retrieve soldier information based on their ID and display associated weapon details from a MySQL database.This project provides a user interface for managing military resources efficiently.
 
 Features
